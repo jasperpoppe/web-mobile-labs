@@ -1,4 +1,4 @@
-web-mobile-labs
+Web Mobile Labs Jasper Poppe
 ===============
 
-Labs of the Web &amp; Mobile course at Kaho Sint-Lieven
+Created files for the Web &amp; Mobile course at Kaho Sint-Lieven
