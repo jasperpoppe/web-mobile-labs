@@ -1,0 +1,69 @@
+/** 
+ * 
+ * Index styles 
+ * 
+ * @author Rogier van der Linde <rogier.vanderlinde@kahosl.be> 
+ * 
+ */
+/**
+ * General styles
+ * ----------------------------------------------------------------
+ */
+article.postit {
+  border: 1px solid #fff057;
+  background-color: #fff057;
+  padding: 10px;
+  width: 220px;
+  float: left;
+  position: relative;
+  margin: 5px;
+}
+
+article.postit h1 {
+  font-size: 20px;
+}
+article.postit img {
+  height: 100px;
+}
+article.postit figure * {
+  font-size: 9px;
+  text-align: right;
+}
+article.postit h2 {
+  font-size: 12px;
+  margin-top: 8px;
+}
+article.postit h2 + * {
+  margin-left: 20px;
+}
+article.postit * {
+  font-size: 10px;
+}
+article.postit dl {
+  width: 200px;
+}
+article.postit dt, article.postit dd {
+  width: 100px;
+  float: left;
+}
+
+p.wantedfor {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+p.more {
+  margin-top: 15px;
+  text-align: right;
+}
+
+/**
+ * Animations and transitions
+ * ----------------------------------------------------------------
+ */
+/**
+ * Pins
+ * ----------------------------------------------------------------
+ */

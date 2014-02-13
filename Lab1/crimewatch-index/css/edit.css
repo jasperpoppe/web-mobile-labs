@@ -1,0 +1,96 @@
+/** 
+ * 
+ * Edit styles 
+ * 
+ * @author Rogier van der Linde <rogier.vanderlinde@kahosl.be> 
+ * 
+ */
+
+	article#detailsform {
+		background-image: url(../img/sheet.jpg);
+		width: 540px;
+		min-height: 500px;
+		margin: 0 auto;
+		position: relative;
+		padding: 30px;
+		padding-bottom: 70px;
+	}
+
+	article#detailsform h2 {
+		font-size: 16px;
+		margin-top: 20px;
+		margin-bottom: 10px;
+	}
+
+	img#mugshot {
+		width: 150px;
+		border: 5px solid white;
+		position: absolute;
+		top: 0;
+		left: 410px;
+		z-index: 1;
+	}
+
+	article#detailsform dl {
+		width: 500px;
+		margin-top: 10px;
+	}
+
+	article#detailsform dt {
+		width: 150px;
+		float: left;
+	}
+
+	article#detailsform dd {
+		width: 350px;
+		float: left;
+	}
+
+	article#detailsform dt, article#detailsform dd {
+		height: 24px;
+		line-height: 24px;
+	}
+
+	article#detailsform h1 {
+		font-size: 20px;
+	}
+
+	ul#bottommenu {
+		position: absolute;
+		bottom: 15px;
+		left: 30px;
+	}
+
+	ul#bottommenu a {
+		text-decoration: none;
+	}
+
+	input#age, input#height {
+		width: 50px;
+	}
+
+	input#lastplace, input#contactemail, input#contactname {
+		width: 250px;
+	}
+
+	textarea#wantedfor {
+		width: 500px;
+		height: 100px;
+	}
+
+	datalist {
+		background-color: white;
+	}
+	p#buttonrow {
+		padding-left: 150px;
+		padding-top: 10px;
+	}
+
+	p#buttonrow input {
+		font-size: 16px;
+	}
+
+	textarea, input {
+		font-size: 14px;
+	}
+

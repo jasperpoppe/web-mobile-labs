@@ -1,0 +1,60 @@
+/** 
+ * 
+ * Common styles 
+ * 
+ * @author Rogier van der Linde <rogier.vanderlinde@kahosl.be> 
+ * 
+ */
+
+
+/**
+ * Fonts definitions
+ * ----------------------------------------------------------------
+ */
+
+
+/**
+ * General layout
+ * ----------------------------------------------------------------
+ */
+ 
+ 	p {
+ 		margin: 10px 0;
+ 	}
+ 
+	body {
+		background-image: url(../img/corktile.jpg);
+	}
+	
+	div#wrapper {
+		margin: 0 auto;
+		width: 1120px;
+	} 
+	
+	header {
+		height: 150px;
+		position: relative;
+		background-image: url(../img/crimewatch.gif);
+		background-repeat: no-repeat;
+		background-position: 50px;
+
+		a {
+			text-decoration: none;
+			color: #111;
+			font-size: 60px;
+			position: absolute;
+			left: 160px;
+			top: 20px;
+		}
+	
+		h1 span {
+			font-size: 30px;
+			color: #700;
+		}
+	}
+	
+	section#maincontent {
+		margin: 0 auto;
+		width: 1050px;
+	}
+
