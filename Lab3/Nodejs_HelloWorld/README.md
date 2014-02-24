@@ -1,4 +1,4 @@
-Lab 3: Node.js
+Node.js
 ===============
 
 Resource
