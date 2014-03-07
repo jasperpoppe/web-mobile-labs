@@ -5,6 +5,6 @@ Created files for the Web &amp; Mobile course at Kaho Sint-Lieven
 
 > **Labs:**
 > 
-> - Lab1: Sass
-> - Lab2: API
-> - Lab3: Node.js + Express
+> - Lab1: Crimewatch Index Page: Sass
+> - Lab2: Movies DB REST API
+> - Lab3: Movies DB REST API using Node.js
