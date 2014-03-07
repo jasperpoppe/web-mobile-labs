@@ -1,0 +1,14 @@
+{
+	"require": {
+		"silex/silex": "~1.0",
+		"doctrine/dbal": "~2.2",
+		"knplabs/repository-service-provider": "dev-master",
+		"symfony/validator": "~2.1"
+	},
+	"autoload": {
+		"psr-0": {
+			"Api": "src/",
+			"Ikdoeict": "src/"
+		}
+	}
+}
