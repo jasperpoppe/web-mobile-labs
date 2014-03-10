@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>AngularJS uppercase lowercase</title>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+</head>
+<body>
+    <p>Back to <a href="index.html">index</a></p>
+    <h1>Uppercase lowercase example</h1>
+
+    Write some text in textbox:
+    <input type="text" ng-model="sometext" />
+  
+    <h2>Hello {{ sometext }}</h2>
+ 
+    <h4>Uppercase: {{ sometext | uppercase }}</h4>
+    <h4>Lowercase: {{ sometext | lowercase }}</h4>
+</body>
+</html>
