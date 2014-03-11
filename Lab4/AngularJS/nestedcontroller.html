@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app>
+<head>
+   	<title>AngularJS controller</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular.min.js"></script>
+</head>
+<body>
+    <p>Back to <a href="index.html">index</a></p>
+    <h1>Nested controller example</h1>
+    
+	<div ng-controller="CarController">
+    	My name is {{ name }} and I am a {{ type }}
+     
+    	<div ng-controller="BMWController">
+        	My name is {{ name }} and I am a {{ type }}
+ 
+        	<div ng-controller="BMWMotorcycleController">
+            	My name is {{ name }} and I am a {{ type }}
+ 
+        	</div>
+    	</div>
+	</div>
+<script>
+	function CarController($scope) {
+    	$scope.name = 'Car';
+    	$scope.type = 'Car';
+	}
+	function BMWController($scope) {
+    	$scope.name = 'BMW';
+	}
+ 
+	function BMWMotorcycleController($scope) {
+    	$scope.name = 'BMWMotorade';
+    	$scope.type = 'Motorcycle';
+	}
+	</script>
+</body>
+</html>

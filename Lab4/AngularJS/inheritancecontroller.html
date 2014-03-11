@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app>
+<head>
+   	<title>AngularJS inheritance controller</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular.min.js"></script>
+</head>
+<body>
+    <p>Back to <a href="index.html">index</a></p>
+    <h1>Inheritance controller example</h1>
+	<div ng-controller="BMWController">
+	    My name is {{ name }} and I am a {{ type }}
+	    <button ng-click="clickme()">Click Me</button> 
+	</div>
+	<script>
+		function CarController($scope) {
+
+		    $scope.name = 'Car';
+		    $scope.type = 'Car';
+		  
+		    $scope.clickme = function() {
+		        alert('This is parent controller "CarController" calling');
+		    }
+		}
+		  
+		function BMWController($scope, $injector) {
+		    $injector.invoke(CarController, this, {$scope: $scope});
+		    $scope.name = 'BMW';
+		}
+	</script>
+</body>
+</html>

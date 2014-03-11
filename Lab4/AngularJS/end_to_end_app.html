@@ -1,0 +1,99 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <title>AngularJS end to end application examples</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular.min.js"></script>
+  </head>
+  <body>
+    <p>Back to <a href="index.html">index</a></p>
+    <h1>End to end application example</h1>
+    <div ng-controller="ContactController">
+      <form>
+        <label>Name</label> 
+        <input type="text" name="name" ng-model="newcontact.name"/>
+        <label>Email</label> 
+        <input type="text" name="email" ng-model="newcontact.email"/>
+        <label>Phone</label> 
+        <input type="text" name="phone" ng-model="newcontact.phone"/>
+        <br/>
+        <input type="hidden" ng-model="newcontact.id" />
+        <input type="button" value="Save" ng-click="saveContact()" />
+      </form>
+      <table>
+        <thead> 
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="contact in contacts">
+            <td>{{ contact.name }}</td>
+            <td>{{ contact.email }}</td>
+            <td>{{ contact.phone }}</td>
+            <td>
+                <a  href="#" ng-click="edit(contact.id)">edit</a> | 
+                <a href="#" ng-click="delete(contact.id)">delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>    
+    </div>
+    <script>
+      var uid = 1;
+
+      function ContactController($scope) {
+          
+        $scope.contacts = [
+            { id:0, 'name': 'Viral', 
+              'email':'hello@gmail.com', 
+              'phone': '123-2343-44'
+            }
+        ];
+           
+        $scope.saveContact = function() {
+               
+          if($scope.newcontact.id == null) {
+            //if this is new contact, add it in contacts array
+            $scope.newcontact.id = uid++;
+            $scope.contacts.push($scope.newcontact);
+          } else {
+            //for existing contact, find this contact using id
+            //and update it.
+            for(i in $scope.contacts) {
+              if($scope.contacts[i].id == $scope.newcontact.id) {
+                $scope.contacts[i] = $scope.newcontact;
+              }
+            }                
+          } 
+          //clear the add contact form
+          $scope.newcontact = {};
+        }
+       
+        $scope.delete = function(id) {
+               
+          //search contact with given id and delete it
+          for(i in $scope.contacts) {
+            if($scope.contacts[i].id == id) {
+              $scope.contacts.splice(i,1);
+              $scope.newcontact = {};
+            }
+          }
+        }
+           
+        $scope.edit = function(id) {
+          //search contact with given id and update it
+          for(i in $scope.contacts) {
+            if($scope.contacts[i].id == id) {
+              //we use angular.copy() method to create 
+              //copy of original object
+              $scope.newcontact = angular.copy($scope.contacts[i]);
+            }
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
