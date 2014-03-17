@@ -1,0 +1,8 @@
+lijst van film tonen
+detail, info
+acteurs
+acteurs detail
+films
+genres
+
+Volledige applicatie om door die website te gaan in AngularJS

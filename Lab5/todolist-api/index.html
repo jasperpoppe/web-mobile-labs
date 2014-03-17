@@ -1,0 +1,45 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <title>Todo list</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.1/angular.min.js"></script>
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <h1>Todo list</h1>
+    <div ng-controller="TodoController">
+      <form>
+        <label>What</label>
+        <input type="text" name="what" ng-model="newtodo.what"/>
+        <label>Priority</label>
+        <input type="text" name="priority" ng-model="newtodo.priority"/>
+        <label>Added on</label>
+        <input type="text" name="added_on" ng-model="newtodo.added_on"/>
+        <br/>
+        <input type="hidden" ng-model="newcontact.id" />
+        <input type="button" value="Save" ng-click="saveTodo()" />
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>What</th>
+            <th>Priority</th>
+            <th>Added on</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="todo in todos">
+            <td>{{ todo.what }}</td>
+            <td>{{ todo.priority }}</td>
+            <td>{{ todo.added_on }}</td>
+            <td>
+                <a  href="#" ng-click="edit(todo.id)">edit</a> | 
+                <a href="#" ng-click="done(todo.id)">done</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>    
+    </div>
+  </body>
+</html>

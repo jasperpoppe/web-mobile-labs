@@ -10,4 +10,5 @@ Hackpad: https://wmd1314.hackpad.com
 > - Lab1: Crimewatch Index Page: Sass
 > - Lab2: Movies DB REST API
 > - Lab3: Movies DB REST API using Node.js
-> - Lab4: AngularJS
+> - Lab4: Discussing AngularJS
+> - Lab5: Todolist with AngularJS

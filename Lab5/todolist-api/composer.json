@@ -1,0 +1,14 @@
+{
+	"require": {
+		"php": ">=5.4.0",
+		"pimple/pimple": "~1.0",
+		"doctrine/dbal": "~2.2",
+		"bramus/router": "dev-master"
+	},
+	"autoload": {
+		"psr-0": {
+			"Api": "src/",
+			"Bramus": "src/"
+		}
+	}
+}
