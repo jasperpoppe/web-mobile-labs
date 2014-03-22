@@ -1,0 +1,19 @@
+'driverOptions'
+set names utf8
+
+
+web -> index.php
+Werken met pimple
+config db request response router
+$dic->share
+
+$_PUT zelf maken en opvullen
+
+header('X-Pwoered_By: bramus/router');
+GET,POST, PUT, DELETE toelaten in header
+
+$dic['router']->before('POST', '(.*)', function(){
+	$content_type_args = explode(';', $_SERVER['content'])...
+});
+
+post en put gebruiken bij angular voor update

@@ -13,3 +13,4 @@ Lab5 todolist
 > - http://scotch.io/tutorials/javascript/single-page-apps-with-angularjs-routing-and-templating
 > - http://docs.angularjs.org/api/ngRoute/service/$route
 > - http://scotch.io/tutorials/javascript/angularjs-form-validation
+> - http://viralpatel.net/blogs/angularjs-routing-and-views-tutorial-with-example/
