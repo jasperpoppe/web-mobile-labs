@@ -6,6 +6,10 @@ todoApp.config(['$routeProvider',
       when('/EditTodo/:todoId', {
 	    templateUrl: 'templates/edit_todo.html',
 	    controller: 'EditTodoController'
+      }).
+      when('/', {
+        templateUrl: 'templates/index.html',
+        controller: 'TodoController'
       });
 }]);
  
@@ -29,7 +33,7 @@ todoApp.controller('TodoController', function($scope, $http){
 	    }
 	];*/
 
-	$scope.items = [];
+	$scope.todos = [];
     $scope.getItems = function() {
 
         $http({

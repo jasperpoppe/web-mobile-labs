@@ -1,0 +1,34 @@
+	<div ng-controller="TodoController" ng-init="getItems()">
+      <form>
+        <label>What</label>
+        <input type="text" name="what" ng-model="newtodo.what"/>
+        <label>Priority</label>
+        <input type="text" name="priority" ng-model="newtodo.priority"/>
+        <label>Added on</label>
+        <input type="text" name="added_on" ng-model="newtodo.added_on"/>
+        <br/>
+        <input type="hidden" ng-model="newtodo.id" />
+        <input type="button" value="Save" ng-click="saveTodo()" />
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>What</th>
+            <th>Priority</th>
+            <th>Added on</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="todo in todos">
+            <td>{{ todo.what }}</td>
+            <td>{{ todo.priority }}</td>
+            <td>{{ todo.added_on }}</td>
+            <td>
+                <a href="#EditTodo/{{todo.id}}">edit</a> | 
+                <a href="#" ng-click="done(todo.id)">done</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
