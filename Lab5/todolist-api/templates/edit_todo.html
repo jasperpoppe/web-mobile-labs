@@ -1,6 +1,13 @@
 <p>Back to <a href="#">list</a></p>
+<div ng-init="getItem(todo.id)">
+	<h2>Todo &#34;{{edittodo.what}}&#34;</h2>
 
-<h2>Todo #{{todo_id}}</h2>
- 
-<p>Here are the details for todo <b>#{{todo_id}}</b>.</p>
-<p>{{todo_what}}, {{todo_priority}}, {{todo_added_on}}</p>
+	<form ng-submit="save(edittodo.id)">
+        <label>What</label>
+        <input type="text" name="what" ng-model="edittodo.what" required/>
+        <label>Priority</label>
+        <input type="text" name="priority" ng-model="edittodo.priority" required/>
+        <br/>
+        <input type="submit" value="Save" />
+    </form>
+</div>

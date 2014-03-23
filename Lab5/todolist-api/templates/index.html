@@ -1,14 +1,11 @@
-	<div ng-controller="TodoController" ng-init="getItems()">
-      <form>
+	<div ng-init="getItems()">
+      <form ng-submit="saveNewTodo()">
         <label>What</label>
-        <input type="text" name="what" ng-model="newtodo.what"/>
+        <input type="text" name="what" ng-model="newtodo.what" required/>
         <label>Priority</label>
-        <input type="text" name="priority" ng-model="newtodo.priority"/>
-        <label>Added on</label>
-        <input type="text" name="added_on" ng-model="newtodo.added_on"/>
+        <input type="text" name="priority" ng-model="newtodo.priority" required/>
         <br/>
-        <input type="hidden" ng-model="newtodo.id" />
-        <input type="button" value="Save" ng-click="saveTodo()" />
+        <input type="submit" value="Save" />
       </form>
       <table>
         <thead>
@@ -26,7 +23,7 @@
             <td>{{ todo.added_on }}</td>
             <td>
                 <a href="#EditTodo/{{todo.id}}">edit</a> | 
-                <a href="#" ng-click="done(todo.id)">done</a>
+                <a href="#" ng-click="deleteTodo(todo.id)">done</a>
             </td>
           </tr>
         </tbody>
