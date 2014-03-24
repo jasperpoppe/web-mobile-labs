@@ -12,3 +12,4 @@ Hackpad: https://wmd1314.hackpad.com
 > - Lab3: Movies DB REST API using Node.js
 > - Lab4: Discussing AngularJS
 > - Lab5: Todolist with AngularJS
+> - Lab6: Responsive webdesign

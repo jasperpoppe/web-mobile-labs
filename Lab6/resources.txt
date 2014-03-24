@@ -1,0 +1,2 @@
+Responsive tutorial:
+- http://www.1stwebdesigner.com/css/responsive-website-tutorial/
