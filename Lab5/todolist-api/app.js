@@ -17,6 +17,8 @@ todoApp.config(['$routeProvider',
 todoApp.controller('TodoController', function($scope, $http){
 
 	$scope.todos = [];
+    $objs = [];
+    
     $scope.getItems = function() {
 
         $http({
@@ -28,11 +30,21 @@ todoApp.controller('TodoController', function($scope, $http){
         	}
         })
         .success(function(data, status) {
-            $scope.todos = data;
+            $objs = data;
+            $objs.sort(SortByPriority);
+            $scope.todos = $objs;
         })
         .error(function(data, status) {
             alert("Error");
         });
+
+        //This will sort the todos
+        function SortByPriority(a, b){
+          var aName = a.priority.toLowerCase();
+          var bName = b.priority.toLowerCase();
+          //return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
+          return ((aName == 'low') ? 1 : ((aName == 'high') ? -1 : ((aName == 'normal' && bName == 'high') ? 1 : -1)));
+        }
     };
 
     $scope.saveNewTodo = function(){
@@ -43,10 +55,9 @@ todoApp.controller('TodoController', function($scope, $http){
                 what: $scope.newtodo.what,
                 priority: $scope.newtodo.priority
             },
-            method: 'POST',
-            headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
+            method: 'POST'
         }).success(function(data){
-            console.log("OK", data);
+            window.location.href = '#';
         }).error(function(err){
             console.log("ERR", err);
         });
@@ -99,8 +110,7 @@ todoApp.controller('EditTodoController', ['$scope', '$routeParams', '$http', fun
                 what: $scope.edittodo.what,
                 priority: $scope.edittodo.priority
             },
-            method: 'POST',
-            headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
+            method: 'POST'
         }).success(function(data){
             console.log("OK", data);
             window.location.href = '#';
