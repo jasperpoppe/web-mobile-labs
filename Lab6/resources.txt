@@ -1,2 +1,4 @@
 Responsive tutorial:
 - http://www.1stwebdesigner.com/css/responsive-website-tutorial/
+- http://www.creativebloq.com/responsive-web-design/build-basic-responsive-site-css-1132756
+- http://www.websitedelivery.nl/responsive-webdesign-nader-bekeken/

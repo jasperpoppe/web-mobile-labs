@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+	
+		/* RESET + CLEARFIX */
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.clearfix:after {
+		  content: ".";
+		  display: block;
+		  height: 0;
+		  clear: both;
+		  visibility: hidden;
+		}
+		
+		/* TYPOGRAPHY & COLORS */
+		body {
+			font: normal 13px/1.48 "Helvetica Neue", Helvetica; /* change every pixel to: (px / 13 = em) */
+			font-weight: 300;
+			background: #FFF;
+			color: #666;
+			letter-spacing: 1px;
+		}
+		
+		h1, h2, h3, h4 {
+			font-family: Georgia;
+			color: #333;
+			margin-bottom: 0.92307692307692em; /* 12px */
+		}
+		
+		p {
+			margin-bottom: 0.92307692307692em; /* 12px */
+		}
+		
+		strong {
+			color: #444;
+		}
+		
+		h1 {
+			font-size: 3.69230769230769em; /* 48px */
+		}
+		
+		h2 {
+			font-size: 1.84615384615385em; /* 24px */
+		}
+		
+		h3 {
+			font-size: 1.38461538461538em; /* 18px */
+			margin-top: 1.84615384615385em; /* 24px */
+		}
+
+		@media only screen and (min-width: 1201px) {
+			/* SITEWRAPPER */
+			#wrapper {
+				width: 100%;
+				margin: 1.53846153846154em auto 0; /* 20px auto 0 */
+			}
+			
+			/* CENTER COL */
+			#main > div {
+				width: 66%;
+				padding-bottom: 3.07692307692308em; /* 40px */
+				float: left;
+			}
+
+			#main article{
+				width: 50%;
+				float: left;
+			}
+			
+			/* CENTER COL : ARTICLE */
+			#main article img {
+				width: 15.38461538461538em; /* 200px */
+			}
+			
+			#main article img.floatLeft {
+				float: left;
+				margin: 0 1.15384615384615em 0 0; /* 0 15px 0 0 */
+			}
+			
+			/* CENTER COL: COMMENTS */
+			#comments{
+				width: 50%;
+				float: left;
+			}	
+
+			#comments h3 {
+				margin-top: 3.07692307692308em; /* 40px */
+				padding-top: 1.53846153846154em; /* 20px */
+				border-top: 0.07692307692308em solid #ccc; /* 1px */
+			}
+			
+			#commentslist {
+				list-style: none;
+				padding-left: 1.53846153846154em; /* 20px */
+			}
+			
+			#commentslist li {
+				padding-top: 0.92307692307692em; /* 12px */
+				padding-bottom: 0.92307692307692em; /* 12px */
+				border-top: 0.07692307692308em dotted #CCC; /* 1px */
+			}
+			
+			#commentslist li.first {
+				padding-top: 0;
+				border: none;
+			}
+			
+			#commentslist .gravatar {
+				padding-top: 2.61538461538462em; /* 34px */
+				width: 7.69230769230769em; /* 100px */
+				float: left;
+			}
+			
+			#commentslist .comment {
+				width: 73%;
+				float: left;
+			}
+			
+			.comment p.author {
+				height: 1.38461538461538em; /* 18px */
+				line-height: 1.38461538461538em; /* 18px */
+			}
+			
+			.comment p.mute {
+				color: #ccc;
+				font-style: italic;
+				font-size: 0.84615384615385em; /* 11px */
+			}
+			
+			form dl {
+				margin-left: 1.53846153846154em; /* 20px */
+			}
+			
+			form dl dt {
+				width: 7.69230769230769em; /* 100px */
+				float: left;
+				clear: left;
+				min-height: 1.53846153846154em; /* 20px */
+				line-height: 1.53846153846154em; /* 20px */
+				padding-bottom: 0.92307692307692em; /* 12px */
+			}
+			
+			form dl dt abbr {
+				color: red;
+			}
+			
+			form dl dd {
+				width: 84%;
+				float: left;
+				line-height: 1.53846153846154em; /* 20px */
+			}
+			
+			form input.input-text {
+				width: 100%;
+				border: 0.07692307692308em solid #666; /* 1px */
+				padding: 0.23076923076923em 0.15384615384615em; /* 3px 2px */
+				font-size: 1em; /* 13px */
+			}
+			
+			form textarea {
+				width: 100%;
+				padding: 0.23076923076923em 0.15384615384615em; /* 3px 2px */
+				height: 9.23076923076923em; /* 120px */
+			}
+			
+			/* SIDEBAR */
+			#main aside {
+				width: 25%;
+				padding: 0.38461538461538em; /* 5px */
+				margin-top: 3.84615384615385em; /* 50px */
+				float: left;
+				margin-left: 5.38461538461538em; /* 70px */
+				background: #efefef;
+			}
+			
+			ul.more {
+				list-style: none;
+			}
+			
+			ul.more li {
+				width: 42%;
+				margin: 0 0 0.84615384615385em 0.84615384615385em; /* 0 0 11px 11px */
+				float: left;
+				text-align: center;
+				font-size: 0.76923076923077em; /* 10px */
+			}
+			
+			ul.more li img {
+				border: 0.15384615384615em solid #333; /* 2px */
+				display: block;
+    			margin-left: auto;
+    			margin-right: auto;
+			}
+			
+			ul.big li {
+				width: 100%;
+				margin-right: 0;
+			}
+
+			aside#blogroll ul {
+				padding-left: 1.84615384615385em; /* 24px */
+			}
+			
+			/* DOORMAT */
+			#doormat {
+				border-top: 0.07692307692308em solid #ccc; /* 1px */
+			}
+			
+			#doormat dl {
+				width: 11.69230769230769em; /* 152px */
+				float: left;
+				padding: 1.53846153846154em; /* 20px */
+			}
+			
+			#doormat dt {
+				color: #333;
+				font-weight: 600;
+			}
+		}
+
+		@media only screen and (min-width: 981px) and (max-width: 1200px) {
+			/* SITEWRAPPER */
+			#wrapper {
+				width: 100%;
+				margin: 1.53846153846154em auto 0; /* 20px auto 0 */
+			}
+			
+			/* CENTER COL */
+			#main > div {
+				width: 66%;
+				padding-bottom: 3.07692307692308em; /* 40px */
+				float: left;
+			}
+			
+			/* CENTER COL : ARTICLE */
+			#main article img {
+				width: 15.38461538461538em; /* 200px */
+			}
+			
+			#main article img.floatLeft {
+				float: left;
+				margin: 0 1.15384615384615em 0 0; /* 0 15px 0 0 */
+			}
+			
+			/* CENTER COL: COMMENTS */		
+			#comments h3 {
+				margin-top: 3.07692307692308em; /* 40px */
+				padding-top: 1.53846153846154em; /* 20px */
+				border-top: 0.07692307692308em solid #ccc; /* 1px */
+			}
+			
+			#commentslist {
+				list-style: none;
+				padding-left: 1.53846153846154em; /* 20px */
+			}
+			
+			#commentslist li {
+				padding-top: 0.92307692307692em; /* 12px */
+				padding-bottom: 0.92307692307692em; /* 12px */
+				border-top: 0.07692307692308em dotted #CCC; /* 1px */
+			}
+			
+			#commentslist li.first {
+				padding-top: 0;
+				border: none;
+			}
+			
+			#commentslist .gravatar {
+				padding-top: 2.61538461538462em; /* 34px */
+				width: 7.69230769230769em; /* 100px */
+				float: left;
+			}
+			
+			#commentslist .comment {
+				width: 84%;
+				float: left;
+			}
+			
+			.comment p.author {
+				height: 1.38461538461538em; /* 18px */
+				line-height: 1.38461538461538em; /* 18px */
+			}
+			
+			.comment p.mute {
+				color: #ccc;
+				font-style: italic;
+				font-size: 0.84615384615385em; /* 11px */
+			}
+			
+			form dl {
+				margin-left: 1.53846153846154em; /* 20px */
+			}
+			
+			form dl dt {
+				width: 7.69230769230769em; /* 100px */
+				float: left;
+				clear: left;
+				min-height: 1.53846153846154em; /* 20px */
+				line-height: 1.53846153846154em; /* 20px */
+				padding-bottom: 0.92307692307692em; /* 12px */
+			}
+			
+			form dl dt abbr {
+				color: red;
+			}
+			
+			form dl dd {
+				width: 84%;
+				float: left;
+				line-height: 1.53846153846154em; /* 20px */
+			}
+			
+			form input.input-text {
+				width: 100%;
+				border: 0.07692307692308em solid #666; /* 1px */
+				padding: 0.23076923076923em 0.15384615384615em; /* 3px 2px */
+				font-size: 1em; /* 13px */
+			}
+			
+			form textarea {
+				width: 100%;
+				padding: 0.23076923076923em 0.15384615384615em; /* 3px 2px */
+				height: 9.23076923076923em; /* 120px */
+			}
+			
+			/* SIDEBAR */
+			#main aside {
+				width: 25%;
+				padding: 0.38461538461538em; /* 5px */
+				margin-top: 3.84615384615385em; /* 50px */
+				float: left;
+				margin-left: 5.38461538461538em; /* 70px */
+				background: #efefef;
+			}
+			
+			ul.more {
+				list-style: none;
+			}
+			
+			ul.more li {
+				width: 42%;
+				margin: 0 0 0.84615384615385em 0.84615384615385em; /* 0 0 11px 11px */
+				float: left;
+				text-align: center;
+				font-size: 0.76923076923077em; /* 10px */
+			}
+			
+			ul.more li img {
+				border: 0.15384615384615em solid #333; /* 2px */
+				display: block;
+    			margin-left: auto;
+    			margin-right: auto;
+			}
+			
+			ul.big li {
+				width: 100%;
+				margin-right: 0;
+			}
+
+			aside#blogroll ul {
+				padding-left: 1.84615384615385em; /* 24px */
+			}
+			
+			/* DOORMAT */
+			#doormat {
+				border-top: 0.07692307692308em solid #ccc; /* 1px */
+			}
+			
+			#doormat dl {
+				width: 11.69230769230769em; /* 152px */
+				float: left;
+				padding: 1.53846153846154em; /* 20px */
+			}
+			
+			#doormat dt {
+				color: #333;
+				font-weight: 600;
+			}
+		}
+
+		@media only screen and (min-width: 768px) and (max-width: 980px) { 
+			/* SITEWRAPPER */
+			#wrapper {
+				width: 100%;
+				margin: 1.53846153846154em auto 0; /* 20px auto 0 */
+			}
+			
+			/* CENTER COL */
+			#main > div {
+				width: 100%;
+				padding-bottom: 3.07692307692308em; /* 40px */
+				float: left;
+			}
+			
+			/* CENTER COL : ARTICLE */
+			#main article img {
+				height: auto;
+				max-width: 100%;
+			}
+			
+			#main article img.floatLeft {
+				float: left;
+				margin: 0 1.15384615384615em 0 0; /* 0 15px 0 0 */
+			}
+			
+			/* CENTER COL: COMMENTS */		
+			#comments h3 {
+				margin-top: 3.07692307692308em; /* 40px */
+				padding-top: 1.53846153846154em; /* 20px */
+				border-top: 0.07692307692308em solid #ccc; /* 1px */
+			}
+			
+			#commentslist {
+				list-style: none;
+				padding-left: 1.53846153846154em; /* 20px */
+			}
+			
+			#commentslist li {
+				padding-top: 0.92307692307692em; /* 12px */
+				padding-bottom: 0.92307692307692em; /* 12px */
+				border-top: 0.07692307692308em dotted #CCC; /* 1px */
+			}
+			
+			#commentslist li.first {
+				padding-top: 0;
+				border: none;
+			}
+			
+			#commentslist .gravatar {
+				padding-top: 2.61538461538462em; /* 34px */
+				width: 7.69230769230769em;
+				float: left;
+			}
+			
+			#commentslist .comment {
+				width: 86%;
+				float: left;
+			}
+			
+			.comment p.author {
+				height: 1.38461538461538em; /* 18px */
+				line-height: 1.38461538461538em; /* 18px */
+			}
+			
+			.comment p.mute {
+				color: #ccc;
+				font-style: italic;
+				font-size: 0.84615384615385em; /* 11px */
+			}
+			
+			form dl {
+				margin-left: 1.53846153846154em; /* 20px */
+			}
+			
+			form dl dt {
+				width: 7.69230769230769em; /* 100px */
+				float: left;
+				clear: left;
+				min-height: 1.53846153846154em; /* 20px */
+				line-height: 1.53846153846154em; /* 20px */
+				padding-bottom: 0.92307692307692em; /* 12px */
+			}
+			
+			form dl dt abbr {
+				color: red;
+			}
+			
+			form dl dd {
+				width: 86%;
+				float: left;
+				line-height: 1.53846153846154em; /* 20px */
+			}
+			
+			form input.input-text {
+				width: 96.5%;
+				border: 0.07692307692308em solid #666; /* 1px */
+				padding: 0.23076923076923em 0.15384615384615em; /* 3px 2px */
+				font-size: 1em; /* 13px */
+			}
+			
+			form textarea {
+				width: 96.5%;
+				padding: 0.23076923076923em 0.15384615384615em; /* 3px 2px */
+				height: 9.23076923076923em; /* 120px */
+			}
+			
+			/* SIDEBAR */
+			#main aside {
+				width: 44.7%;
+				padding: 0.38461538461538em; /* 5px */
+				margin: 1.53846153846154em; /* 20px */
+				float: left;
+				background: #efefef;
+			}
+
+			#main aside#luctus {
+				margin-left: 0;
+			}
+			
+			ul.more {
+				list-style: none;
+				margin: 0 auto;
+				width: 19.23076923076923em;
+			}
+			
+			ul.more li {
+				width: 46%;
+				margin: 0 0 0.84615384615385em 0.84615384615385em; /* 0 0 11px 11px */
+				float: left;
+				text-align: center;
+				font-size: 0.76923076923077em; /* 10px */
+			}
+			
+			ul.more li img {
+				border: 0.15384615384615em solid #333; /* 2px */
+			}
+			
+			ul.big li {
+				width: 16.46153846153846em; /* 214px */
+				margin-right: 0;
+			}
+
+			aside#blogroll{
+				width: 93.5%;
+			}
+
+			aside#blogroll ul {
+				padding-left: 1.84615384615385em; /* 24px */
+			}
+			
+			/* DOORMAT */
+			#doormat {
+				border-top: 0.07692307692308em solid #ccc; /* 1px */
+			}
+			
+			#doormat dl {
+				width: 28%; /* 152px */
+				float: left;
+				padding: 1.53846153846154em; /* 20px */
+			}
+			
+			#doormat dt {
+				color: #333;
+				font-weight: 600;
+			}
+		}
+
+		@media only screen and (max-width: 767px) { 
+			/* SITEWRAPPER */
+			#wrapper {
+				width: 100%;
+				margin: 1.53846153846154em auto 0; /* 20px auto 0 */
+			}
+			
+			/* CENTER COL */
+			#main > div {
+				width: 100%;
+				padding-bottom: 3.07692307692308em; /* 40px */
+				float: left;
+			}
+			
+			/* CENTER COL : ARTICLE */
+			#main article img {
+				height: auto;
+				max-width: 100%;
+			}
+			
+			#main article img.floatLeft {
+				display: block;
+    			margin-left: auto;
+    			margin-right: auto;
+			}
+			
+			/* CENTER COL: COMMENTS */		
+			#comments h3 {
+				margin-top: 3.07692307692308em; /* 40px */
+				padding-top: 1.53846153846154em; /* 20px */
+				border-top: 0.07692307692308em solid #ccc; /* 1px */
+			}
+			
+			#commentslist {
+				list-style: none;
+				padding-left: 1.53846153846154em; /* 20px */
+			}
+			
+			#commentslist li {
+				padding-top: 0.92307692307692em; /* 12px */
+				padding-bottom: 0.92307692307692em; /* 12px */
+				border-top: 0.07692307692308em dotted #CCC; /* 1px */
+			}
+			
+			#commentslist li.first {
+				padding-top: 0;
+				border: none;
+			}
+			
+			#commentslist .gravatar {
+				padding-top: 2.61538461538462em;
+				width: 6.3em;
+				margin: 0 auto;
+			}
+			
+			#commentslist .comment {
+				width: 100%;
+				float: left;
+			}
+			
+			.comment p.author {
+				height: 1.38461538461538em; /* 18px */
+				line-height: 1.38461538461538em; /* 18px */
+			}
+			
+			.comment p.mute {
+				color: #ccc;
+				font-style: italic;
+				font-size: 0.84615384615385em; /* 11px */
+			}
+
+			.comment p{
+				text-align: center;
+			}
+			
+			form dl {
+				margin-left: 1.53846153846154em; /* 20px */
+			}
+			
+			form dl dt {
+				width: 7.69230769230769em; /* 100px */
+				float: left;
+				clear: left;
+				min-height: 1.53846153846154em; /* 20px */
+				line-height: 1.53846153846154em; /* 20px */
+				padding-bottom: 0.92307692307692em; /* 12px */
+			}
+			
+			form dl dt abbr {
+				color: red;
+			}
+			
+			form dl dd {
+				width: 100%;
+				float: left;
+				line-height: 1.53846153846154em; /* 20px */
+			}
+			
+			form input.input-text {
+				width: 96.5%;
+				border: 0.07692307692308em solid #666; /* 1px */
+				padding: 0.23076923076923em 0.15384615384615em; /* 3px 2px */
+				font-size: 1em; /* 13px */
+			}
+			
+			form textarea {
+				width: 96.5%;
+				padding: 0.23076923076923em 0.15384615384615em; /* 3px 2px */
+				height: 9.23076923076923em; /* 120px */
+			}
+			
+			/* SIDEBAR */
+			#main aside {
+				width: 100%;
+				padding: 0.38461538461538em; /* 5px */
+				margin: 1.53846153846154em 0 1.53846153846154em 0;
+				float: left;
+				background: #efefef;
+			}
+
+			#main aside#luctus {
+				margin-left: 0;
+			}
+			
+			ul.more {
+				list-style: none;
+				margin: 0 auto;
+				width: 19.23076923076923em;
+			}
+			
+			ul.more li {
+				width: 46%;
+				margin: 0 0 0.84615384615385em 0.84615384615385em; /* 0 0 11px 11px */
+				float: left;
+				text-align: center;
+				font-size: 0.76923076923077em; /* 10px */
+			}
+			
+			ul.more li img {
+				border: 0.15384615384615em solid #333; /* 2px */
+			}
+			
+			ul.big li {
+				width: 16.46153846153846em; /* 214px */
+				margin-right: 0;
+			}
+
+			aside#blogroll ul {
+				padding-left: 1.84615384615385em; /* 24px */
+			}
+			
+			/* DOORMAT */
+			#doormat {
+				border-top: 0.07692307692308em solid #ccc; /* 1px */
+			}
+			
+			#doormat dl {
+				width: 28%; /* 152px */
+				float: left;
+				padding: 1.53846153846154em; /* 20px */
+			}
+			
+			#doormat dt {
+				color: #333;
+				font-weight: 600;
+			}	
+		}
+		
+	</style>
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+</head>
+<body>
+	<div id="wrapper">
+		<header>
+			<h1>My first fluid website!</h1>
+		</header>
+		<section id="main" class="clearfix">
+			<div>
+				<article>
+					<h2>Lorem ipsum dolor sit amet!</h2>
+					<p><img src="http://placehold.it/200x200" class="floatLeft" alt="" title="" />Consectetur adipiscing elit. Quisque venenatis mauris eget erat tincidunt rhoncus. Aliquam sollicitudin dictum feugiat. Suspendisse potenti. Vivamus sollicitudin adipiscing magna non posuere. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut egestas lorem at ligula tempus ultricies. Ut volutpat, justo quis tincidunt malesuada, libero lorem imperdiet risus, ac ornare mauris libero vel nunc. Integer feugiat, metus a ultricies porta, purus massa vehicula tellus, <strong>vel varius ipsum nulla id nisi</strong>. Donec nibh augue, iaculis consequat faucibus sit amet, elementum quis augue. Pellentesque quis magna a velit cursus adipiscing at viverra risus. Maecenas non libero eu nibh sollicitudin ullamcorper. Praesent vitae elit justo. Suspendisse euismod dui ligula, non placerat quam. Integer condimentum laoreet tristique.</p>
+					<h3>Sed at massa in erat faucibus vulputate sit amet vel risus.</h3>
+					<p>Vestibulum consectetur varius nulla. Vestibulum augue lectus, ultrices ut viverra eget, pellentesque id libero. Donec ac elementum erat. In adipiscing metus vel sem ultricies eu dignissim felis rutrum. Integer eget dolor lorem. Nulla sapien dui, consequat eget viverra quis, luctus ut lacus. Suspendisse potenti. In consectetur molestie suscipit.</p>
+				</article>
+				
+				<section id="comments">
+					
+					<h3>Comments</h3>
+					
+					<ul id="commentslist" class="clearfix">
+						
+						<li class="clearfix first">
+							<div class="gravatar">
+								<img src="http://placehold.it/80x80" alt="" title="" />
+							</div>
+							<div class="comment">
+								<p class="author"><a href="http://www.bram.us/" title="Bramus Van Damme">Bramus Van Damme</a></p>
+								<p>Donec ac elementum erat. In adipiscing metus vel sem ultricies eu dignissim felis rutrum. Integer eget dolor lorem. Nulla sapien dui, consequat eget viverra quis, luctus ut lacus. Suspendisse potenti. In consectetur molestie suscipit.</p>
+								<p class="mute">17/04/2012 17:26 (four hours ago)</p>
+							</div>
+						</li>
+
+						<li class="clearfix">
+							<div class="gravatar">
+								<img src="http://placehold.it/80x80" alt="" title="" />
+							</div>
+							<div class="comment">
+								<p class="author"><a href="http://www.davydewinne.be/" title="Davy De Winne">Davy De Winne</a></p>
+								<p>Aliquam sollicitudin dictum feugiat. Suspendisse potenti. Vivamus sollicitudin adipiscing magna non posuere. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut egestas lorem at ligula tempus ultricies. Ut volutpat, justo quis tincidunt malesuada, libero lorem imperdiet risus, ac ornare mauris libero vel nunc.</p>
+								<p class="mute">17/04/2012 18:26 (three hours ago)</p>
+							</div>
+						</li>
+
+						<li class="clearfix">
+							<div class="gravatar">
+								<img src="http://placehold.it/80x80" alt="" title="" />
+							</div>
+							<div class="comment">
+								<p class="author"><a href="http://www.bram.us/" title="Bramus Van Damme">Bramus Van Damme</a></p>
+								<p>@Davy: Pellentesque quis magna a velit cursus adipiscing at viverra risus. Maecenas non libero eu nibh sollicitudin ullamcorper. Praesent vitae elit justo. Suspendisse euismod dui ligula, non placerat quam. Integer condimentum laoreet tristique.</p>
+								<p class="mute">17/04/2012 19:34 (about two hours ago)</p>
+							</div>
+						</li>
+
+					</ul>
+						
+					<h3>Add Comment</h3>
+					
+					<form action="#" method="post">
+						<dl class="clearfix">
+							<dt><label for="name">Name<abbr title="This field is mandatory">*</abbr></label></dt>
+							<dd><input type="text" name="name" id="name" class="input-text" /></dd>
+							<dt><label for="email">E-mail<abbr title="This field is mandatory">*</abbr></label></dt>
+							<dd><input type="email" name="email" id="email" class="input-text" /></dd>
+							<dt><label for="website">Website</label></dt>
+							<dd><input type="url" name="website" id="website" class="input-text" placeholder="http://" /></dd>
+							<dt><label for="message">Message<abbr title="This field is mandatory">*</abbr></label></dt>
+							<dd><textarea name="message" id="message"></textarea></dd>
+							<dt>&nbsp;</dt>
+							<dd><input type="submit" name="submit" value="Add comment" /></dd>
+						</dl>
+					</form>
+				</section>
+			</div>
+			
+			<aside>
+				<h4>Sed at massa in erat</h4>
+				<ul class="more">
+					<li>
+						<img src="http://placehold.it/100x40" />
+						<a href="#">Accumsan</a>
+					</li>
+					<li>
+						<img src="http://placehold.it/100x40" />
+						<a href="#">Quis eget</a>
+					</li>
+					<li>
+						<img src="http://placehold.it/100x40" />
+						<a href="#">Phasellus</a>
+					</li>
+					<li>
+						<img src="http://placehold.it/100x40" />
+						<a href="#">Tempus</a>
+					</li>
+				</ul>
+			</aside>
+
+			<aside id="luctus" class="clearfix">
+				<h4>Luctus ut lacus</h4>
+				<ul class="more big">
+					<li>
+						<img src="http://placehold.it/210x80" />
+						<a href="#">Pellentesque quis</a>
+					</li>
+					<li>
+						<img src="http://placehold.it/210x80" />
+						<a href="#">Donec ac elementum</a>
+					</li>
+				</ul>
+			</aside>
+			
+			<aside id="blogroll">
+				<h4>Vestibulum consectetur</h4>
+				<ul class="normal">
+					<li><a href="#">Morbi dignissim aliquet mi</a></li>
+					<li><a href="#">Aenean porta aliquam libero ut convallis</a></li>
+					<li><a href="#">In et ligula tortor</a></li>
+					<li><a href="#">Sed cursus quam</a></li>
+					<li><a href="#">Praesent auctor, massa ut blandit tempus</a></li>
+				</ul>
+			</aside>
+				
+		</section>
+		
+		<footer>
+			<nav id="doormat" class="clearfix">
+				<dl>
+					<dt>Aenean porta</dt>
+					<dd><a href="#">Nam nunc enim</a></dd>
+					<dd><a href="#">Ut quis</a></dd>
+					<dd><a href="#">Aenean scelerisque</a></dd>
+				</dl>
+				<dl>
+					<dt>Praesent auctor</dt>
+					<dd><a href="#">Massa ut blandit tempus</a></dd>
+					<dd><a href="#">Vestibulum eu enim</a></dd>
+				</dl>
+				<dl>
+					<dt>Pellentesque lorem</dt>
+					<dd><a href="#">Pharetra at auctor</a></dd>
+					<dd><a href="#">Condimentum quis erat</a></dd>
+					<dd><a href="#">Sem turpis rhoncus</a></dd>
+					<dd><a href="#">Aliquam vel augue</a></dd>
+				</dl>
+				<dl>
+					<dt>Aenean odio</dt>
+					<dd><a href="#">Eget fugit orum</a></dd>
+				</dl>
+				<dl>
+					<dt>Aenean porta</dt>
+					<dd><a href="#">Sem turpis rhoncus</a></dd>
+					<dd><a href="#">Netus et malesuada</a></dd>
+					<dd><a href="#">Aliquam vel augue</a></dd>
+					<dd><a href="#">Fames ac turpis</a></dd>
+				</dl>
+			</nav>
+		</footer>
+		
+	</div>
+</body>
+</html>
