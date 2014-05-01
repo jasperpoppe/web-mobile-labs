@@ -14,3 +14,7 @@ Hackpad: https://wmd1314.hackpad.com
 > - Lab5: Todolist with AngularJS
 > - Lab6: Responsive webdesign part 1: little demo
 > - Lab7: Responsive webdesign part 2: creating own website
+> - Lab8: Game engine: Molecule
+
+> **Other projects:**
+> - Sockets: chat
