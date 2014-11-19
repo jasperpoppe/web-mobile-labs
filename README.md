@@ -15,6 +15,7 @@ Hackpad: https://wmd1314.hackpad.com
 > - Lab6: Responsive webdesign part 1: little demo
 > - Lab7: Responsive webdesign part 2: creating own website
 > - Lab8: Game engine: Molecule
+> - Lab9: Heroku
 
 > **Other projects:**
 > - Sockets: chat
